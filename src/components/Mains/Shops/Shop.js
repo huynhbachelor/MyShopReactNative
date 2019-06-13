@@ -1,4 +1,7 @@
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import React, { Component } from 'react';
+import { View } from 'react-native';
+import { Header, SearchBar } from 'react-native-elements';
 import CartScreen from './Cart/Cart';
 import ContactScreen from './Contact/Contact';
 import HomeScreen from './Home/Home';
@@ -16,16 +19,62 @@ const shopBotomTabNavigation = createBottomTabNavigator(
             inactiveTintColor: 'gray',
             activeTintColor: '#517fa4',
             labelStyle: {
-            fontSize: 12,
-        },
+                fontSize: 12,
+            },
             style: {
                 backgroundColor: '#fff',
             }
         }
-    }  
+    }
 );
 
-const Shop = createAppContainer(shopBotomTabNavigation);
+const ShoptabBar = createAppContainer(shopBotomTabNavigation);
+
+class Shop extends Component {
+    state = {
+        search: '',
+    };
+
+    updateSearch = search => {
+        this.setState({ search });
+    };
+
+    render() {
+        return (
+            <View style={{ flex: 1 }}>
+                <View>
+                    <Header
+                        leftComponent={{
+                            icon: 'menu',
+                            color: 'white',
+                            onPress: () => { this.props.navigation.openDrawer(); }
+                        }}
+                        centerComponent={{ text: 'Home', style: { color: 'white', fontSize: 20 } }}
+                        rightComponent={{
+                            icon: 'apps',
+                            color: 'white'
+                        }}
+                        containerStyle={{
+                            height: 50,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            paddingBottom: 20
+                        }}
+                    />
+                    <SearchBar
+                        placeholder="Type Here..."
+                        lightTheme
+                        round
+                        onChangeText={this.updateSearch}
+                        value={this.state.search}
+                    />
+                </View>
+                <ShoptabBar />
+            </View>
+
+        );
+    }
+}
 
 export default Shop;
 
