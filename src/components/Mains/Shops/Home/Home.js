@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { Header, SearchBar } from 'react-native-elements';
+import { Header, SearchBar, Icon } from 'react-native-elements';
 
 class HomeScreen extends Component {
+    static navigationOptions={
+        tabBarIcon: ({ tintColor }) => (
+            <Icon 
+                name='home'
+                color={tintColor}
+            />
+        )
+    }
+
     state = {
         search: '',
     };

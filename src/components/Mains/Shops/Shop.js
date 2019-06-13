@@ -13,10 +13,16 @@ const shopBotomTabNavigation = createBottomTabNavigator(
     },
     {
         tabBarOptions: {
-            activeTintColor: 'tomato',
             inactiveTintColor: 'gray',
+            activeTintColor: '#517fa4',
+            labelStyle: {
+            fontSize: 12,
         },
-    }
+            style: {
+                backgroundColor: '#fff',
+            }
+        }
+    }  
 );
 
 const Shop = createAppContainer(shopBotomTabNavigation);
