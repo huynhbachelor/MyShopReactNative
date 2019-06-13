@@ -51,7 +51,7 @@ const MainNavigator = createStackNavigator({
   {
     initialRouteName: 'Main',
     mode: 'modal',
-    // headerMode: 'none'
+    headerMode: 'none' 
   }
 );
 
