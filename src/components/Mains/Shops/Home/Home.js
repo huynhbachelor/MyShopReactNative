@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 import { Icon } from 'react-native-elements';
 import Collection from './Collection';
 import Category from './Category';
+import TopProducts from './TopProducts';
 
 class HomeScreen extends Component {
     static navigationOptions={
@@ -16,10 +17,11 @@ class HomeScreen extends Component {
 
     render() {
         return (
-            <View style={{ flex: 1, backgroundColor: '#C8D8D8' }}>
+            <ScrollView style={{ flex: 1, backgroundColor: '#C8D8D8' }}>
                 <Collection />
                 <Category />
-            </View>
+                <TopProducts />
+            </ScrollView>
         );
     }
 }

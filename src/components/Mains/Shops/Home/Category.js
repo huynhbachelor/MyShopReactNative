@@ -19,8 +19,7 @@ class Category extends Component {
                         source={{ uri: 'https://github.com/vanpho93/LiveCodeReactNative/blob/master/src/media/temp/banner.jpg?raw=true' }}
                         style={{
                             width: '100%',
-                            height: '100%',
-                            borderWidth: 1
+                            height: '100%'
                         }}
                         PlaceholderContent={<ActivityIndicator />}
                     />
@@ -28,8 +27,7 @@ class Category extends Component {
                         source={{ uri: '' }}
                         style={{
                             width: '100%',
-                            height: '100%',
-                            borderWidth: 1
+                            height: '100%'
                         }}
                         PlaceholderContent={<ActivityIndicator />}
                     />
@@ -37,14 +35,13 @@ class Category extends Component {
                         source={{ uri: '' }}
                         style={{
                             width: '100%',
-                            height: '100%',
-                            borderWidth: 1
+                            height: '100%'                     
                         }}
                         PlaceholderContent={<ActivityIndicator />}
                     />
                 </Swiper>
             </View>
-        )
+        );
     }
 }
 
@@ -68,22 +65,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#AFAEAF',
         marginBottom: 10
-    },
-    slide1: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#9DD6EB',
-    },
-    slide2: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#97CAE5',
-    },
-    slide3: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#92BBD9',
-    },
+    }
 });
 
 export default Category;

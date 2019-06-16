@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Dimensions, ActivityIndicator } from 'react-native';
 import { Image, Text } from 'react-native-elements';
 
-const { height } = Dimensions.get('window');
+const { height } = Dimensions.get('screen');
 
 class Collection extends Component {
     render() {
