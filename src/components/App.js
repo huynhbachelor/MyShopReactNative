@@ -49,7 +49,7 @@ const MainNavigator = createStackNavigator({
     }
   },
   {
-    initialRouteName: 'Auth',
+    initialRouteName: 'Main',
     mode: 'modal',
     headerMode: 'none' 
   }

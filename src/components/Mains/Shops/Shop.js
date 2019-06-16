@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import { Header, SearchBar } from 'react-native-elements';
 import CartScreen from './Cart/Cart';
 import ContactScreen from './Contact/Contact';
-import HomeScreen from './Home/Home';
+import HomeScreen from './Home/HomeScreen';
 import SearchScreen from './Search/Search';
 
 const shopBotomTabNavigation = createBottomTabNavigator(
@@ -62,7 +62,7 @@ class Shop extends Component {
                         }}
                     />
                     <SearchBar
-                        placeholder="Type Here..."
+                        placeholder="What do you want to buy?"
                         lightTheme
                         round
                         onChangeText={this.updateSearch}

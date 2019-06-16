@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, StyleSheet, ActivityIndicator } from 'react-native';
+import { 
+    View, Text, FlatList, StyleSheet, ActivityIndicator, TouchableOpacity 
+} from 'react-native';
 import { Image } from 'react-native-elements';
 import { myWidth, myFont } from '../../../../consts/dimens';
 
@@ -12,21 +14,25 @@ class TopProducts extends Component {
 
     componentDidMount() {
         const arr = [
-            { 
-                'name': 'Product 1', 
-                'picture': 'https://github.com/vanpho93/LiveCodeReactNative/blob/master/images/100.jpeg?raw=true' 
-            }, 
-            { 
-                'name': 'Product 2', 
-                'picture': 'https://github.com/vanpho93/LiveCodeReactNative/blob/master/images/101.jpeg?raw=true' 
+            {
+                name: 'Product 1',
+                picture: 'https://github.com/vanpho93/LiveCodeReactNative/blob/master/images/100.jpeg?raw=true',
+                price: '300'
             },
-            { 
-                'name': 'Product 3', 
-                'picture': 'https://github.com/vanpho93/LiveCodeReactNative/blob/master/images/101.jpeg?raw=true' 
+            {
+                name: 'Product 2',
+                picture: 'https://github.com/vanpho93/LiveCodeReactNative/blob/master/images/101.jpeg?raw=true',
+                price: '400'
             },
-            { 
-                'name': 'Product 4', 
-                'picture': 'https://github.com/vanpho93/LiveCodeReactNative/blob/master/images/101.jpeg?raw=true' 
+            {
+                name: 'Product 3',
+                picture: 'https://github.com/vanpho93/LiveCodeReactNative/blob/master/images/101.jpeg?raw=true',
+                price: '500'
+            },
+            {
+                name: 'Product 4',
+                picture: 'https://github.com/vanpho93/LiveCodeReactNative/blob/master/images/101.jpeg?raw=true',
+                price: '600'
             }
         ];
         this.setState({
@@ -34,15 +40,25 @@ class TopProducts extends Component {
         });
     }
 
+    gotoProductDetail=() => {
+        const { navigation } = this.props;
+        navigation.navigate('ProductDetail');
+    }
+
     renderItem = ({ item }) => (
-        <View style={styles.box}>
-            <Image 
-                source={{ uri: item.picture }}
-                PlaceholderContent={<ActivityIndicator />}
-                style={styles.imageProduct}
-            />
-            <Text style={styles.titleProduct}>{item.name}</Text>
-        </View>
+        <TouchableOpacity 
+            onPress={this.gotoProductDetail}
+        >
+            <View style={styles.box}>
+                <Image
+                    source={{ uri: item.picture }}
+                    PlaceholderContent={<ActivityIndicator />}
+                    style={styles.imageProduct}
+                />
+                <Text style={styles.titleProduct}>{item.name}</Text>
+                <Text style={styles.priceProduct}>{item.price}$</Text>
+            </View>
+        </TouchableOpacity>
     );
 
     render() {
@@ -77,6 +93,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.3,
         shadowColor: '#149191',
         elevation: 5,
+        padding: 2,
         margin: 10,
     },
     imageProduct: {
@@ -86,6 +103,11 @@ const styles = StyleSheet.create({
     titleProduct: {
         fontSize: myFont.nomall,
         alignSelf: 'center'
+    },
+    priceProduct: {
+        fontSize: myFont.nomall,
+        alignSelf: 'center',
+        color: 'blue'
     },
     top: {
         fontSize: myFont.large,

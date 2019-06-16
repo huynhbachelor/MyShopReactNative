@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Dimensions, ActivityIndicator } from 'react-native';
+import { View, StyleSheet, Dimensions, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { Text, Image } from 'react-native-elements';
 import Swiper from 'react-native-swiper';
 
 const { height } = Dimensions.get('window');
 
 class Category extends Component {
+
+    gotoListProduct = () => {
+        const { navigation } = this.props;
+        navigation.navigate('ListProduct');
+    }
+
     render() {
         return (
             <View style={styles.warpper}>
@@ -15,15 +21,19 @@ class Category extends Component {
                     width="100%"
                     height="100%"
                 >
-                    <Image 
-                        source={{ uri: 'https://github.com/vanpho93/LiveCodeReactNative/blob/master/src/media/temp/banner.jpg?raw=true' }}
-                        style={{
-                            width: '100%',
-                            height: '100%'
-                        }}
-                        PlaceholderContent={<ActivityIndicator />}
-                    />
-                    <Image 
+                    <TouchableOpacity 
+                        onPress={this.gotoListProduct}
+                    >
+                        <Image
+                            source={{ uri: 'https://github.com/vanpho93/LiveCodeReactNative/blob/master/src/media/temp/banner.jpg?raw=true' }}
+                            style={{
+                                width: '100%',
+                                height: '100%'
+                            }}
+                            PlaceholderContent={<ActivityIndicator />}
+                        />
+                    </TouchableOpacity>
+                    <Image
                         source={{ uri: '' }}
                         style={{
                             width: '100%',
@@ -31,11 +41,11 @@ class Category extends Component {
                         }}
                         PlaceholderContent={<ActivityIndicator />}
                     />
-                    <Image 
+                    <Image
                         source={{ uri: '' }}
                         style={{
                             width: '100%',
-                            height: '100%'                     
+                            height: '100%'
                         }}
                         PlaceholderContent={<ActivityIndicator />}
                     />
