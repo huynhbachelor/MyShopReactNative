@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { 
-    View, FlatList, StyleSheet, 
-    Text, ActivityIndicator, TouchableOpacity 
+import {
+    View, FlatList, StyleSheet,
+    Text, ActivityIndicator, TouchableOpacity
 } from 'react-native';
 import { Header, Image } from 'react-native-elements';
 import backList from '../../../../accsets/backList.png';
@@ -46,7 +46,7 @@ class ListProduct extends Component {
         });
     }
 
-    onRefresh= () => {
+    onRefresh = () => {
         this.setState(
             {
                 refreshing: true
@@ -77,11 +77,11 @@ class ListProduct extends Component {
                     <Text style={styles.itemColor}>Color {item.color}</Text>
                 </View>
                 <View style={styles.itemBox2}>
-                    <TouchableOpacity 
+                    <TouchableOpacity
                         style={{ flexDirection: 'row', alignItems: 'center' }}
                         onPress={() => {
                             if (item.detail) {
-                                this.props.navigation.navigate('ProductDetail');
+                                this.props.navigation.navigate('ProductDetail', { product: item });
                             }
                         }}
                     >
@@ -119,10 +119,14 @@ class ListProduct extends Component {
                 <View style={container}>
                     <Header
                         leftComponent={
-                            <Image
-                                style={{ height: 25, width: 25 }}
-                                source={backList}
-                            />
+                            <TouchableOpacity
+                                onPress={() => this.props.navigation.goBack()}
+                            >
+                                <Image
+                                    style={{ height: 25, width: 25 }}
+                                    source={backList}
+                                />
+                            </TouchableOpacity>
                         }
                         centerComponent={<Text style={headerTitle} >Party Dress</Text>}
                         containerStyle={header}
